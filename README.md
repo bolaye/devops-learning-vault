@@ -4,4 +4,5 @@ Welcome to my DevOps journey! I am building this roadmap step-by-step to master 
 
 ## Current Status
 - [x] Mission 1: Tools Installed
-- [ ] Mission 2: First Commit
+- [x] Mission 2: First Commit
+- [ ] Week 1: Git Branching Practice
