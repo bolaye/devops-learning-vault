@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  # Service 1: Our Custom Python App
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: my-python-app
+
+  # Service 2: A standard Nginx Web Server
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    container_name: my-nginx-web
