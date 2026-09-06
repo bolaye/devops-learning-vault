@@ -1,19 +1,15 @@
 name: My First CI Pipeline
 
-# 1. Trigger: When should this robot run?
 on:
   push:
     branches:
       - main
-      - week9-cicd
+      - week9-cicd-advanced
 
-# 2. Jobs: What work needs to be done?
 jobs:
   build-and-test:
-    # Run this on the latest version of Ubuntu
     runs-on: ubuntu-latest
     
-    # 3. Steps: The actual commands the robot will run
     steps:
       - name: Checkout my code
         uses: actions/checkout@v3
@@ -29,3 +25,7 @@ jobs:
           echo "Checking Python version..."
           python --version
           echo "✅ Pipeline completed successfully!"
+
+      # --- NEW STEP: Automated Bash Script Scanner ---
+      - name: Check Bash scripts for errors
+        uses: ludeeus/action-shellcheck@master
