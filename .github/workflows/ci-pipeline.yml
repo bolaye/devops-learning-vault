@@ -1,0 +1,31 @@
+name: My First CI Pipeline
+
+# 1. Trigger: When should this robot run?
+on:
+  push:
+    branches:
+      - main
+      - week9-cicd
+
+# 2. Jobs: What work needs to be done?
+jobs:
+  build-and-test:
+    # Run this on the latest version of Ubuntu
+    runs-on: ubuntu-latest
+    
+    # 3. Steps: The actual commands the robot will run
+    steps:
+      - name: Checkout my code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14'
+
+      - name: Run a test command
+        run: |
+          echo "🤖 Hello from the GitHub Actions robot!"
+          echo "Checking Python version..."
+          python --version
+          echo "✅ Pipeline completed successfully!"
