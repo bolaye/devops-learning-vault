@@ -3,17 +3,17 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.67.0" 
+      version = "~> 4.67.0"
     }
   }
 }
 
 # 2. Configure the AWS provider for LocalStack
 provider "aws" {
-  region                      = "us-east-1"
-  access_key                  = "test"
-  secret_key                  = "test"
-  
+  region     = "us-east-1"
+  access_key = "test"
+  secret_key = "test"
+
   endpoints {
     s3  = "http://localhost:4566"
     ec2 = "http://localhost:4566"
@@ -24,10 +24,10 @@ provider "aws" {
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
-  skip_region_validation      = true 
-  
+  skip_region_validation      = true
+
   # CRITICAL FIX: Forces Terraform to use http://localhost:4566/bucketname instead of http://bucketname.localhost:4566
-  s3_use_path_style           = true 
+  s3_use_path_style = true
 }
 
 # 3. Define the resource: An S3 Bucket
