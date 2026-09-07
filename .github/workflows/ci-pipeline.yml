@@ -29,3 +29,5 @@ jobs:
       # --- NEW STEP: Automated Bash Script Scanner ---
       - name: Check Bash scripts for errors
         uses: ludeeus/action-shellcheck@master
+        with:
+          severity: error
